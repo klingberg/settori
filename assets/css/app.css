@@ -1,0 +1,56 @@
+/* This file is for your main application css. */
+
+body {
+    align-items: center;
+    background-color: #000000;
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+}
+
+.sector {
+    background-image: url('/images/grid.png');
+    outline: 1px solid rgba(0, 255, 0, .2);
+    height: 800px;
+    overflow: hidden;
+    position: relative;
+    width: 800px;
+}
+
+.planet1 {
+    background-image: url('/images/planet1.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 120px;
+    width: 120px;
+    position: absolute;
+    bottom: 140px;
+    right: 140px;
+}
+
+.planet2 {
+    background-image: url('/images/planet2.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 100px;
+    width: 100px;
+    position: absolute;
+    top: 60px;
+    right: 60px;
+}
+
+.player {
+    background-color: green;
+    border-radius: 50%;
+    height: 19px;
+    position: absolute;
+    transform: translate(0, 0);
+    transition: transform .5s;
+    width: 19px;
+}
+
+.counter {
+    position: absolute;
+    right: 0;
+    top: 0;
+}
