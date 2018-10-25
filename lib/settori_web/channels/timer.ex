@@ -1,7 +1,7 @@
 defmodule SettoriWeb.Timer do
   use GenServer
 
-  @timedelay 1500
+  @timedelay 1000
 
   def start_link(name \\ nil) do
     GenServer.start_link(__MODULE__, %{}, name: :timer)
@@ -17,8 +17,9 @@ defmodule SettoriWeb.Timer do
     SettoriWeb.Endpoint.broadcast!("room:lobby", "update:players", %{players: players})
 
     timer_ref = Process.send_after(self(), :tick, @timedelay)
-    if state.turn < 999, do: turn = state.turn + 1, else: turn = 0
-    {:noreply, %{turn: turn, timeer: timer_ref}}
+    turn = if state.turn < 999, do: state.turn + 1, else: 0
+
+    {:noreply, %{turn: turn, timer: timer_ref}}
   end
 
   # CLient API
